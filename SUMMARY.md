@@ -22,6 +22,7 @@
     * [2.2.5 残差网络](2.-shen-jing-chang-wei-fen-fang-cheng/2.2-ying-yong/2.2.5-can-cha-wang-luo/README.md)
       * [2.2.5.1 旋转向量场](2.-shen-jing-chang-wei-fen-fang-cheng/2.2-ying-yong/2.2.5-can-cha-wang-luo/2.2.5.1-xuan-zhuan-xiang-liang-chang.md)
       * [2.2.5.2 动量残差网络](2.-shen-jing-chang-wei-fen-fang-cheng/2.2-ying-yong/2.2.5-can-cha-wang-luo/2.2.5.2-dong-liang-can-cha-wang-luo.md)
+      * [2.2.5.3 其他积分格式](2.-shen-jing-chang-wei-fen-fang-cheng/2.2-ying-yong/2.2.5-can-cha-wang-luo/2.2.5.3-qi-ta-ji-fen-ge-shi.md)
   * [2.3 参数化选择](2.-shen-jing-chang-wei-fen-fang-cheng/2.3-can-shu-hua-xuan-ze/README.md)
     * [2.3.1 神经架构](2.-shen-jing-chang-wei-fen-fang-cheng/2.3-can-shu-hua-xuan-ze/2.3.1-shen-jing-jia-gou.md)
     * [2.3.2 非自洽](2.-shen-jing-chang-wei-fen-fang-cheng/2.3-can-shu-hua-xuan-ze/2.3.2-fei-zi-qia.md)
