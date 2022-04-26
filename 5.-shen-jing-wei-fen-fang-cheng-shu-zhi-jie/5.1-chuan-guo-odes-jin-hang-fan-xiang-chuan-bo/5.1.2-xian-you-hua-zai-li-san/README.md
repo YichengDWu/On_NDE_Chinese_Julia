@@ -8,7 +8,7 @@ $$
 y(0)=y_{0}, \quad \frac{\mathrm{d} y}{\mathrm{~d} t}(t)=f_{\theta}(t, y(t))
 $$
 
-的唯一解。令$$L=L(y(T))$$为某终值$$y(T)$$的标量函数。那么$$\frac{\mathrm{d} L}{\mathrm{~d} y(t)}=a_{y}(t)$$和$$\frac{\mathrm{d} L}{\mathrm{~d} \theta}=a_{\theta}(0)$$，其中$$a_{y}:[0, T] \rightarrow \mathbb{R}^{d}$$和$$a_{\theta}:[0, T] \rightarrow \mathbb{R}^{m}$$是如下微分方程系统的解：
+的唯一解。令 $$L=L(y(T))$$ 为某终值$$y(T)$$的标量函数。那么$$\frac{\mathrm{d} L}{\mathrm{~d} y(t)}=a_{y}(t) 和 \frac{\mathrm{d} L}{\mathrm{~d} \theta}=a_{\theta}(0)$$ ，其中 $$a_{y}:[0, T] \rightarrow \mathbb{R}^{d}$$和$$a_{\theta}:[0, T] \rightarrow \mathbb{R}^{m}$$是如下微分方程系统的解:
 
 $$
 \begin{aligned}
@@ -47,3 +47,24 @@ $$
 这被称为 "连续伴随法法"，或 "先优化后离散 "的方法。导数的计算是相对于理想化的连续时间模型而言的，然后（5.1）伴随方程本身必须被离散化。
 
 **备注5.5**  连续伴随法通常也被简单地称为 "伴随法"，特别是在现代神经微分方程文献中。 这是一个令人遗憾的术语歧义。在一些著名的著作中，"伴随法 "被用来指代离散-优化方法\[GG06]和优化-再离散方法\[Che+18b]。此外，它有时还被用来指代其他完全不同的东西。\[HNW08，定义8.2]用它来指代数值积分步骤的逆映射，因此，例如隐式欧拉步骤是显式欧拉步骤的 "伴随"。
+
+
+
+**译者注3**  总的来说，我们有如下算法：
+
+1. 输入$$y(0)=y_0$$.
+2. 求解神经ODE，得到$$y(T)$$. 中间表示不用保存，实现不依赖时间的内存效率.
+3. 计算$$\frac{\mathrm{d} L}{\mathrm{~d} y(T)}$$.
+4. 求解ODE系统
+
+$$
+\begin{gathered}
+y(T)=y(T), \quad \frac{\mathrm{d} y}{\mathrm{~d} t}(t)=f_{\theta}(t, y(t)) \\
+a_{y}(T)=\frac{\mathrm{d} L}{\mathrm{~d} y(T)}, \quad \frac{\mathrm{d} a_{y}}{\mathrm{~d} t}(t)=-a_{y}(t) \frac{\partial f_{\theta}}{\partial y}(t, y(t)) \\
+a_{\theta}(T)=0, \quad \frac{\mathrm{d} a_{\theta}}{\mathrm{d} t}(t)=-a_{y}(t)\frac{\partial f_{\theta}}{\partial \theta}(t, y(t))
+\end{gathered}
+$$
+
+&#x20; 得到$$[y(0),a_y(0)=\frac{\mathrm{d} L}{\mathrm{~d} y(0)},a_\theta(0)=\frac{\mathrm{d} L}{\mathrm{~d} \theta}]$$.
+
+**译者注4**  我们常常将输入数据$$x$$投影到高维$$y(0)=NN(x)$$，此时$$\frac{\mathrm{d} L}{\mathrm{~d} y(0)}$$就很有用。
