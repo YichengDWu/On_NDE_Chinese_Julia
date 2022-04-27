@@ -17,11 +17,11 @@ $$
 \end{aligned}\tag{5.1}
 $$
 
-**备注5.3**  方程(5.1)中的向量-矩阵积，更确切地说，是向量-雅可比积。这些可以通过自动微分有效地计算出来，见附录[A.1](../../../fu-lu-a/a.1-zi-dong-wei-fen.md)。
+> **备注5.3**  方程(5.1)中的向量-矩阵积，更确切地说，是向量-雅可比积。这些可以通过自动微分有效地计算出来，见附录[A.1](../../../fu-lu-a/a.1-zi-dong-wei-fen.md)。
 
-**备注5.4** 请注意，第二个方程中的$$a_y(t)$$（而不是$$a_θ(t)$$）并不是一个印刷错误。矢量场与$$a_θ$$无关。这可以被利用来加速穿过神经ODE的反向传播；这是我们将在第[5.4.2.1](../../5.4-ti-shi-he-ji-qiao/5.4.2-li-yong-zi-shi-ying-bu-chang-kong-zhi-qi-de-jie-gou.md)节回到的话题。
+> **备注5.4** 请注意，第二个方程中的$$a_y(t)$$（而不是$$a_θ(t)$$）并不是一个印刷错误。矢量场与$$a_θ$$无关。这可以被利用来加速穿过神经ODE的反向传播；这是我们将在第[5.4.2.1](../../5.4-ti-shi-he-ji-qiao/5.4.2-li-yong-zi-shi-ying-bu-chang-kong-zhi-qi-de-jie-gou.md)节回到的话题。
 
-**译者注1**  梯度和微分是对偶（转置）关系。注意按微分理解$$a_y$$和$$a_\theta$$都是行向量，那么方程应该是
+> **译者注1**  梯度和微分是对偶（转置）关系。注意按微分理解$$a_y$$和$$a_\theta$$都是行向量，那么方程应该是
 
 $$
 \begin{aligned}
@@ -32,7 +32,21 @@ $$
 
 这点在Neural ODE原论文中也有提到。
 
-**译者注2**  方程中的$$\frac{\mathrm{d} L}{\mathrm{~d} y(T)}$$准确的说应该是$$\frac{\mathrm{d} L}{\mathrm{~d} y}|_{y=y(T)}$$.&#x20;
+> **译者注2**  方程中的$$\frac{\mathrm{d} L}{\mathrm{~d} y(T)}$$准确的说应该是$$\frac{\mathrm{d} L}{\mathrm{~d} y}|_{y=y(T)}$$.&#x20;
+
+> **译者注3** 一个常见的错误理解是把$$a_\theta$$看做是$$L(y(T),\theta)$$对$$\theta$$偏导数。实际上，有
+>
+> $$
+> L(y(T))=L\left(\mathrm{ODESolve}\left(y_{0}, \theta\right)\right)=L\left(y_{T}(\theta)\right)
+> $$
+>
+> 所以$$a_\theta$$是关于$$\theta$$的全导数。既然$$\theta$$是关于时间的常量，为什么$$a_\theta(t)$$依赖时间呢？实际上,它的定义为
+>
+> $$
+> a_\theta(t)=\frac{\mathrm{d}}{\mathrm{d} \theta}L(y(T))=\frac{\mathrm{d}}{\mathrm{d} \theta}L\left(\mathrm{ODESolve}\left(y(t), \theta\right)\right)=L\left(y_{T}(t, \theta)\right)
+> $$
+>
+> 这就解释了为什么$$a_\theta(0)=\frac{\mathrm{dL}}{\mathrm{d} \theta}$$和$$a_\theta(T)=0$$.
 
 方程（5.1）被称为连续伴随方程。
 
@@ -53,7 +67,7 @@ $$
 **译者注4**  总的来说，我们有如下算法：
 
 1. 输入$$y(0)=y_0$$.
-2. 求解神经ODE，得到$$y(T)$$. 中间表示不用保存，实现不依赖时间的内存效率.
+2. 正向求解神经ODE，得到$$y(T)$$. 中间表示不用保存，实现不依赖时间的内存效率.
 3. 计算$$\frac{\mathrm{d} L}{\mathrm{~d} y(T)}$$.
 4. 求解ODE系统
 
@@ -67,4 +81,4 @@ $$
 
 &#x20; 得到$$[y(0),a_y(0)=\frac{\mathrm{d} L}{\mathrm{~d} y(0)},a_\theta(0)=\frac{\mathrm{d} L}{\mathrm{~d} \theta}]$$.
 
-**译者注5**  我们常常将输入数据$$x$$投影到高维$$y(0)=NN(x)$$，此时$$\frac{\mathrm{d} L}{\mathrm{~d} y(0)}$$就很有用。
+**译者注5**  我们常常将输入数据$$x$$投影到高维$$y(0)=NN(x)$$，此时$$\frac{\mathrm{d} L}{\mathrm{~d} y(0)}$$在反向传播时就很有用。
