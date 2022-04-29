@@ -63,5 +63,5 @@
 * [Page 11](page-11.md)
 * [Page 12](page-12.md)
 * [译者附录](yi-zhe-fu-lu/README.md)
-  * [1. 辛积分](yi-zhe-fu-lu/1.-xin-ji-fen.md)
+  * [1. 辛积分](yi-zhe-fu-lu/xin-ji-fen.md)
   * [2. 伴随法完整证明](yi-zhe-fu-lu/2.-ban-sui-fa-wan-zheng-zheng-ming.md)
