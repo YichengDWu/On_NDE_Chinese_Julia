@@ -32,21 +32,9 @@ $$
 
 这点在Neural ODE原论文中也有提到。
 
-> **译者注2**  方程中的$$\frac{\mathrm{d} L}{\mathrm{~d} y(T)}$$准确的说是$$\left.\frac{\mathrm{d} L}{\mathrm{~d} y}\right|_{y=y(T)}$$.&#x20;
+> **译者注2**  方程中的$$\frac{\mathrm{d} L}{\mathrm{~d} y(T)}$$准确的说是$$\left.\frac{\mathrm{d} L}{\mathrm{~d} y}\right|_{y=y(T)}$$,前者是函数，后者是数.&#x20;
 
-> **译者注3** 一个常见的错误理解是把$$a_\theta$$看做是$$L(y(T),\theta)$$对$$\theta$$偏导数。实际上，有
->
-> $$
-> L(y(T))=L\left(\mathrm{ODESolve}\left(y_{0}, \theta\right)\right)=L\left(y_{T}(\theta)\right)
-> $$
->
-> 所以$$a_\theta$$是关于$$\theta$$的全导数。既然$$\theta$$是关于时间的常量，为什么$$a_\theta(t)$$依赖时间呢？实际上,它的定义为
->
-> $$
-> a_\theta(t)=\frac{\mathrm{d}}{\mathrm{d} \theta}L(y(T))=\frac{\mathrm{d}}{\mathrm{d} \theta}L\left(\mathrm{ODESolve}\left(y(t), \theta\right)\right)
-> $$
->
-> 这里可以看出来对于不同的$$t$$，损失函数$$L$$是关于$$\theta$$的不同的函数。具体的，$$a_\theta(0)=\frac{\mathrm{d}L}{\mathrm{d} \theta}$$和$$a_\theta(T)=0$$.
+> **译者注3** 通过$$y(T)=y(s)+\int_{s}^{t}f_\theta(x,y(x))dx$$可以看出来，$$y(T)$$是$$y(s)$$和参数$$\theta$$的函数。
 
 方程（5.1）被称为连续伴随方程。
 
