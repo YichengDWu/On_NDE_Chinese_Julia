@@ -38,7 +38,7 @@
       * [5.1.2.1 证明“先优化再离散”](5.-shen-jing-wei-fen-fang-cheng-shu-zhi-jie/5.1-chuan-guo-odes-jin-hang-fan-xiang-chuan-bo/5.1.2-xian-you-hua-zai-li-san/5.1.2.1-zheng-ming-xian-you-hua-zai-li-san.md)
       * [5.1.2.2 优点](5.-shen-jing-wei-fen-fang-cheng-shu-zhi-jie/5.1-chuan-guo-odes-jin-hang-fan-xiang-chuan-bo/5.1.2-xian-you-hua-zai-li-san/5.1.2.2-you-dian.md)
       * [5.1.2.3 缺点](5.-shen-jing-wei-fen-fang-cheng-shu-zhi-jie/5.1-chuan-guo-odes-jin-hang-fan-xiang-chuan-bo/5.1.2-xian-you-hua-zai-li-san/5.1.2.3-que-dian.md)
-      * [5.1.2.4 插值的伴随](5.-shen-jing-wei-fen-fang-cheng-shu-zhi-jie/5.1-chuan-guo-odes-jin-hang-fan-xiang-chuan-bo/5.1.2-xian-you-hua-zai-li-san/5.1.2.4-cha-zhi-de-ban-sui.md)
+      * [5.1.2.4 插值伴随](5.-shen-jing-wei-fen-fang-cheng-shu-zhi-jie/5.1-chuan-guo-odes-jin-hang-fan-xiang-chuan-bo/5.1.2-xian-you-hua-zai-li-san/5.1.2.4-cha-zhi-ban-sui.md)
       * [5.1.2.5 检查点](5.-shen-jing-wei-fen-fang-cheng-shu-zhi-jie/5.1-chuan-guo-odes-jin-hang-fan-xiang-chuan-bo/5.1.2-xian-you-hua-zai-li-san/5.1.2.5-jian-cha-dian.md)
     * [5.1.3 可逆求解器](5.-shen-jing-wei-fen-fang-cheng-shu-zhi-jie/5.1-chuan-guo-odes-jin-hang-fan-xiang-chuan-bo/5.1.3-ke-ni-qiu-jie-qi.md)
     * [5.1.4 前向敏感度](5.-shen-jing-wei-fen-fang-cheng-shu-zhi-jie/5.1-chuan-guo-odes-jin-hang-fan-xiang-chuan-bo/5.1.4-qian-xiang-min-gan-du.md)
