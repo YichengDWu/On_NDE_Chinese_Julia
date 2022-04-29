@@ -2,3 +2,4 @@
 
 本仓库是[On Neural Differential Equations](https://arxiv.org/abs/2202.02435)的中文翻译（用DeepL辅助），并尝试Julia语言复现代码。你可以在[这里](https://yicheng-wu.gitbook.io/on-nde/)阅读本电子书。
 
+如果你发现错误，请在[github](https://github.com/MilkshakeForReal/On\_NDE\_Chinese\_Julia)上提issue
